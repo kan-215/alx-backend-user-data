@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Route module for the API
+API route module
 """
 from os import getenv
 from api.v1.views import app_views
@@ -25,7 +25,7 @@ elif AUTH_TYPE == "basic_auth":
 @app.before_request
 def bef_req():
     """
-    Filter each request before it's handled by the proper route
+    Filters the routes before handling
     """
     if auth is None:
         pass

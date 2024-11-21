@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Database for ORM """
+""" Database for storing user data """
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -10,7 +10,7 @@ from user import Base, User
 
 
 class DB:
-    """ DB Class for Object Reational Mapping """
+    """ Object Reational Mapping class """
 
     def __init__(self):
         """ Constructor Method """
@@ -21,14 +21,14 @@ class DB:
 
     @property
     def _session(self):
-        """ Session Getter Method """
+        """ method to get session """
         if self.__session is None:
             DBSession = sessionmaker(bind=self._engine)
             self.__session = DBSession()
         return self.__session
 
     def add_user(self, email: str, hashed_password: str) -> User:
-        """ Adds user to database
+        """ Add a new user to the database
         Return: User Object
         """
         user = User(email=email, hashed_password=hashed_password)
@@ -38,8 +38,8 @@ class DB:
         return user
 
     def find_user_by(self, **kwargs) -> User:
-        """ Finds user by key word args
-        Return: First row found in the users table as filtered by kwargs
+        """ Find a user by key word args
+        Return: First row found in the users table
         """
         if not kwargs:
             raise InvalidRequestError

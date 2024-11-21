@@ -11,11 +11,11 @@ AUTH = Auth()
 
 def get_form_data(*keys):
     """
-    Helper function to extract form data or abort with 400.
+    Helper function for  extracting form data or abort with 400.
     Args:
-        keys: Keys to extract from the request form.
+        keys: used to  extract from the request form.
     Returns:
-        A dictionary with extracted values.
+        dictionary with extracted values.
     """
     data = {}
     for key in keys:
@@ -29,7 +29,7 @@ def get_form_data(*keys):
 @app.route('/', methods=['GET'])
 def hello_world() -> str:
     """
-    Base route for authentication service API.
+    this is thebase  route for authentication service API.
     Returns:
         A JSON payload with a welcome message.
     """
@@ -57,7 +57,7 @@ def register_user() -> str:
 @app.route('/sessions', methods=['POST'])
 def log_in() -> str:
     """
-    Logs in a user and returns a session ID.
+    Logs in a user and returns session ID.
     Returns:
         A response with session ID set as a secure cookie.
     """
@@ -79,9 +79,9 @@ def log_in() -> str:
 @app.route('/sessions', methods=['DELETE'])
 def log_out() -> str:
     """
-    Logs out a user by destroying their session.
+    Logs out a user by destroying ending their session.
     Returns:
-        A redirect to the base route or a 403 status if the session is invalid.
+        A redirect to the base route if the session is invalid.
     """
     session_id = request.cookies.get("session_id")
 
@@ -95,7 +95,7 @@ def log_out() -> str:
 @app.route('/profile', methods=['GET'])
 def profile() -> str:
     """
-    Fetches the profile of the logged-in user.
+    gets the profile of the logged-in user.
     Returns:
         A JSON payload with the user's email.
     """
@@ -135,7 +135,7 @@ def update_password() -> str:
     """
     Updates a user's password using a reset token.
     Returns:
-        A JSON payload indicating success or an error status.
+        A JSON payload showing success or an error status.
     """
     data = get_form_data('email', 'reset_token', 'new_password')
     email, reset_token, new_password = (

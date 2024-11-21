@@ -10,7 +10,7 @@ NEW_PASSWD = "t4rt1fl3tt3"
 
 
 def register_user(email: str, password: str) -> None:
-    """ Test for validating user registration """
+    """ validation of user registration """
     data = {
         "email": email,
         "password": password
@@ -24,7 +24,7 @@ def register_user(email: str, password: str) -> None:
 
 
 def log_in_wrong_password(email: str, password: str) -> None:
-    """ Test for validating log in with wrong password """
+    """ wrong password login validation """
     data = {
         "email": email,
         "password": password
@@ -35,7 +35,7 @@ def log_in_wrong_password(email: str, password: str) -> None:
 
 
 def log_in(email: str, password: str) -> str:
-    """ Test for validating succesful log in """
+    """ succesful log in validation """
     data = {
         "email": email,
         "password": password
@@ -53,7 +53,7 @@ def log_in(email: str, password: str) -> str:
 
 
 def profile_unlogged() -> None:
-    """ Test for validating profile request without log in """
+    """ profile request without log in validation """
     cookies = {
         "session_id": ""
     }
@@ -63,7 +63,7 @@ def profile_unlogged() -> None:
 
 
 def profile_logged(session_id: str) -> None:
-    """ Test for validating profile request logged in """
+    """ profile request logged in validation"""
     cookies = {
         "session_id": session_id
     }
@@ -76,7 +76,7 @@ def profile_logged(session_id: str) -> None:
 
 
 def log_out(session_id: str) -> None:
-    """ Test for validating log out endpoint """
+    """ log out endpoint validation """
     cookies = {
         "session_id": session_id
     }
@@ -89,7 +89,7 @@ def log_out(session_id: str) -> None:
 
 
 def reset_password_token(email: str) -> str:
-    """ Test for validating password reset token """
+    """ password reset token validation """
     data = {
         "email": email
     }
@@ -107,7 +107,7 @@ def reset_password_token(email: str) -> str:
 
 
 def update_password(email: str, reset_token: str, new_password: str) -> None:
-    """ Test for validating password reset (update) """
+    """ password reset validation """
     data = {
         "email": email,
         "reset_token": reset_token,
